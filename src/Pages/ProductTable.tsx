@@ -1,9 +1,11 @@
+import React , { useEffect, useState } from "react";
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import styled from 'styled-components';
 import HeaderTitle from '../Components/HeaderTitle';
-import { API, Smartphone } from '../Api/api'; 
+import { API, Smartphone } from './api'; 
 
 const CreateNewBtn = styled.button`
     background-color: #000; 
@@ -52,47 +54,31 @@ export default function ProductTable(){
 
         fetchData();
     }, []);
-    console.log({smartphones});
+
     return (
         <>
-        <Navbar />
-        <HeaderTitle name="Smartphone"/>
+        <HeaderTitle name="Smartphones"/>
         <Container>
             <div className='d-flex justify-content-end'>
-                <CreateNewBtn>Create new</CreateNewBtn>
+                <a href='/newProduct'><CreateNewBtn>Create new</CreateNewBtn></a>
             </div>
             <ProductTableStyle className='my-4'>
-                <tr>
-                    <td></td>
-                    <td><b>Name</b></td>
-                    <td><b>Brand</b></td>
-                    <td><b>Description</b></td>
-                </tr>
-
-                <tr>
-                    <td><img className='product-image'src="https://placehold.co/100x100"/></td>
-                    <td>Iphone 14</td>
-                    <td>Apple</td>
-                    <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</td>
-                </tr>
-                <tr>
-                    <td><img className='product-image'src="https://placehold.co/100x100"/></td>
-                    <td>Iphone 14</td>
-                    <td>Apple</td>
-                    <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</td>
-                </tr>
-                <tr>
-                    <td><img className='product-image'src="https://placehold.co/100x100"/></td>
-                    <td>Iphone 14</td>
-                    <td>Apple</td>
-                    <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</td>
-                </tr>
-                <tr>
-                    <td><img className='product-image'src="https://placehold.co/100x100"/></td>
-                    <td>Iphone 14</td>
-                    <td>Apple</td>
-                    <td>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td><b>Name</b></td>
+                        <td><b>Brand</b></td>
+                        <td><b>Description</b></td>
+                    </tr>
+                    {smartphones.map((item,index)=>{
+                    return <tr key={index}>
+                        <td><img className='product-image'src={item.image} /></td>
+                        <td>{item.name}</td>
+                        <td>{item.brand}</td>
+                        <td>{item.description}</td>
+                    </tr>
+                    })}
+                </tbody>
             </ProductTableStyle>
         </Container>
         </>

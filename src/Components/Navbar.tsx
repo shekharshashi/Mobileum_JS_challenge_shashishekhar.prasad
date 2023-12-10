@@ -7,7 +7,7 @@ import styled from 'styled-components'
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 
 import { lightTheme, darkTheme } from "../Theme";
-import  {useDarkMode} from "../useDarkMode";
+import  { useDarkMode } from "../useDarkMode";
 import Toggle from "../Toggler";
 
 const Nav = styled.nav`
@@ -48,7 +48,7 @@ const Nav = styled.nav`
 `;
 
 export default function Navbar(){
-    const [theme, themeToggler, mountedComponent] = useDarkMode();
+    const [theme, themeToggler] = useDarkMode();
     const themeMode = theme === 'light' ? lightTheme : darkTheme;
     return (
         <Nav>
@@ -62,24 +62,11 @@ export default function Navbar(){
                     </Col>
 
                     <Col className='text-center text-sm-end'>
-
-                        {/* <Toggle theme='dark' toggleTheme={themeToggler} ButtonName='Dark' /> */}
-                        {/* <Toggle theme='light' toggleTheme={themeToggler} ButtonName='Light' /> */}
+                        <button className='light' onClick={themeToggler}>Light</button>
+                        <button className="dark" onClick={themeToggler}>Dark</button>
                     </Col>
                 </Row>
             </Container>
         </Nav>
     )
 };
-
-function CustomLink ({to, children, ...props}){
-    const resolvedPath = useResolvedPath(to)
-    const isActive = useMatch({ path: resolvedPath.pathname, end: true })
-    return(
-        <li>
-            <Link to={to} {...props} className={isActive ? "active" : ''}>
-                {children}
-            </Link>
-        </li>
-    )
-}

@@ -5,7 +5,7 @@ import {
   Route
 } from "react-router-dom";
 
-import {ThemeProvider} from "styled-components";
+import { styled, ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./globalStyles";
 import { lightTheme, darkTheme } from "./Theme";
 import  {useDarkMode} from "./useDarkMode";
@@ -13,7 +13,8 @@ import Toggle from "./Toggler";
 
 import Navbar from './Components/Navbar'
 import ProductList from './Pages/ProductList';
-import ProductTable from './Pages/productTable';
+import ProductTable from './Pages/ProductTable';
+import NewProduct from './Pages/NewProduct';
 
 const App = () =>{
     const [theme, themeToggler, mountedComponent] = useDarkMode();
@@ -29,11 +30,9 @@ const App = () =>{
                   <Routes>
                     <Route path="/" Component={ProductList}></Route>
                     <Route path="/productTable" Component={ProductTable}></Route>
+                    <Route path="/newProduct" Component={NewProduct}></Route>
                   </Routes>
                 </BrowserRouter>
-              </div>
-              <div className="text-center">
-                {/* <Toggle theme={theme} toggleTheme={themeToggler} ButtonName='Switch Theme' /> */}
               </div>
             </div>
           </>
