@@ -25,7 +25,7 @@ const App = () =>{
             <GlobalStyles />
             <div className="App">
               <div className="text-center">
-                <Navbar />
+                <Navbar themeToggler={themeToggler} />
                 <BrowserRouter>
                   <Routes>
                     <Route path="/" Component={ProductList}></Route>

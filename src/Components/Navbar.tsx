@@ -47,9 +47,7 @@ const Nav = styled.nav`
     }
 `;
 
-export default function Navbar(){
-    const [theme, themeToggler] = useDarkMode();
-    const themeMode = theme === 'light' ? lightTheme : darkTheme;
+export default function Navbar({themeToggler}: any){
     return (
         <Nav>
             <Container>
