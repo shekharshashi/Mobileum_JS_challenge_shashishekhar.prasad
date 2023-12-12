@@ -54,8 +54,12 @@ export default function Navbar({themeToggler}: any){
                 <Row className='justify-content-between align-items-center'>
                     <Col>
                         <ul className='d-flex m-0 justify-content-center justify-content-sm-start'>
-                            <a href="/">Dashboard</a>
-                            <a href="/productTable">Smartphones</a>
+                            <li>
+                                <a href="/">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="/productTable">Smartphones</a>
+                            </li>
                         </ul>
                     </Col>
 

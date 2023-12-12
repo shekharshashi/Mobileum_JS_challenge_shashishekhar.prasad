@@ -24,16 +24,14 @@ const App = () =>{
           <>
             <GlobalStyles />
             <div className="App">
-              <div className="text-center">
-                <Navbar themeToggler={themeToggler} />
-                <BrowserRouter>
-                  <Routes>
-                    <Route path="/" Component={ProductList}></Route>
-                    <Route path="/productTable" Component={ProductTable}></Route>
-                    <Route path="/newProduct" Component={NewProduct}></Route>
-                  </Routes>
-                </BrowserRouter>
-              </div>
+              <Navbar themeToggler={themeToggler} />
+              <BrowserRouter>
+                <Routes>
+                  <Route path="/" Component={ProductList}></Route>
+                  <Route path="/productTable" Component={ProductTable}></Route>
+                  <Route path="/newProduct" Component={NewProduct}></Route>
+                </Routes>
+              </BrowserRouter>
             </div>
           </>
         </ThemeProvider>

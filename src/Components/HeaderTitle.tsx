@@ -1,8 +1,5 @@
 import React from "react";
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import styled from 'styled-components';
 
 const Heading = styled.h1`
@@ -14,12 +11,12 @@ const Heading = styled.h1`
 
 export default function HeaderTitle(props){
     return(
-        <Container>
-            <Row>
-                <Col>
+        <div className="container">
+            <div className="row">
+                <div className="col">
                     <Heading>{props.name}</Heading> 
-                </Col>
-            </Row>
-        </Container>
+                </div>
+            </div>
+        </div>
     )
 };
