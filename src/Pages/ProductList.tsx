@@ -1,8 +1,4 @@
 import React , {useEffect,useState} from "react";
-
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import styled from 'styled-components';
 import HeaderTitle from '../Components/HeaderTitle';
 import { API, Smartphone } from './api'; 
@@ -18,8 +14,9 @@ const ProductListStyle = styled.ul`
             background-color: #f3f5f6;
             margin-bottom: 15px;
             color: #363537;
+
             @media (min-width: 992px){
-                margin-bottom: 0;
+                margin: 0 10px;
             }
         }
         p{
@@ -53,7 +50,7 @@ const SearchBar = styled.div`
         button{
             position: absolute;
             right: 0;
-            top: 0;
+            top: 6px;
             background: transparent;
             border: 0;
             color: #686767;
@@ -85,18 +82,20 @@ export default function ProductList(){
         <>
             <HeaderTitle name="Dashboard"/>
             <SearchBar>
-                <Container>
-                    <Row className='justify-content-end'>
-                        <Col>
+                <div className="container">
+                    <div className='row justify-content-end'>
+                        <div className="col">
                             <div className='position-relative search-wrap text-end'>
                                 <input type="text" onChange={(e)=>handleChange(e)} />  
-                                <button><i className="fa fa-search" aria-hidden="true"></i></button>
+                                <button>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>    
+                                </button>
                             </div>
-                        </Col>
-                    </Row>
-                </Container>
+                        </div>
+                    </div>
+                </div>
             </SearchBar>
-            <Container className='my-3'>
+            <div className='container my-3'>
                 <ProductListStyle className='p-0 row'>
                     {smartphones.map((item,index)=>{
                         if (search == "" || item.name.toLowerCase().includes(search.toLowerCase()) || item.brand.toLowerCase().includes(search.toLowerCase())) {
@@ -111,7 +110,7 @@ export default function ProductList(){
                         return null;
                     })}
                 </ProductListStyle>
-            </Container>
+            </div>
         </>
     )
 };
