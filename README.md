@@ -1,4 +1,4 @@
-# Mobileum_JS_challenge
+# Dashboard
 
 #### Prequisite
 
